@@ -30,6 +30,7 @@ jobs:
               --body "This pull request was automatically generated after a code push." \
               --base main \
               --head "${{ github.ref_name }}"
+              --reviewer "username1,username2"
           else
             echo "Pull request already exists for this branch."
           fi
