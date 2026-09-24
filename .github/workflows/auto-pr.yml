@@ -1,0 +1,35 @@
+name: Auto Create Pull Request
+
+on:
+  push:
+    # Triggers the workflow when you push to any branch starting with 'feature/'
+    branches:
+      - 'feature/*' 
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Checks if a PR already exists for this branch to prevent errors
+          pr_exists=$(gh pr list --head "${{ github.ref_name }}" --json number --jq '.[0].number')
+          
+          if [ -z "$pr_exists" ]; then
+            gh pr create \
+              --title "Auto-PR: ${{ github.ref_name }}" \
+              --body "This pull request was automatically generated after a code push." \
+              --base main \
+              --head "${{ github.ref_name }}"
+          else
+            echo "Pull request already exists for this branch."
+          fi
