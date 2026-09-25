@@ -34,14 +34,16 @@ server:
       configuration:
         ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - path: /here
-            url: http://localhost
+          - path: /sap/opu/odata/sap/API_SALES_ORDER_SRV
+            url: https://sandbox.api.sap.com/s4hanacloud
+            headers:
+              apikey: Y19XE5uqPWRZ99GPhE33sAHyUoV9CMDA
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
         mountPath: /
         services:
-          - urlPath: /here/goes/your/serviceurl
+          - urlPath: /sap/opu/odata/sap/API_SALES_ORDER_SRV
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true

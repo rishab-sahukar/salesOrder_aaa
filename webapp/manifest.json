@@ -24,7 +24,7 @@
         }
       },
       "mainService": {
-        "uri": "/here/goes/your/serviceurl/",
+        "uri": "/sap/opu/odata/sap/API_SALES_ORDER_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [
