@@ -16,8 +16,10 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /here
-            url: http://localhost
+          - path: /sap/opu/odata/sap/API_SALES_ORDER_SRV
+            url: https://sandbox.api.sap.com/s4hanacloud
+            headers:
+              apikey: Y19XE5uqPWRZ99GPhE33sAHyUoV9CMDA
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
