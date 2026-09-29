@@ -17,9 +17,9 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap/opu/odata/sap/API_SALES_ORDER_SRV
-            url: https://sandbox.api.sap.com/s4hanacloud
-            headers:
-              apikey: Y19XE5uqPWRZ99GPhE33sAHyUoV9CMDA
+            url: http://sapha3u01.wup.services:50001
+            client: '100'
+            authenticationType: basic
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

@@ -34,11 +34,13 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /here/goes/your/serviceurl
+          - urlPath: /sap/opu/odata/sap/API_SALES_ORDER_SRV
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
-        annotations: []
+        annotations:
+          - localPath: ./webapp/localService/mainService/API_SALES_ORDER_ANNO_MDL.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='API_SALES_ORDER_ANNO_MDL',Version='0001')/$value/
 builder:
   resources:
     excludes:

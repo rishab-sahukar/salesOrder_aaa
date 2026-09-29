@@ -31,10 +31,6 @@
                             <PropertyValue Property="Label" String="Amount" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="TransactionCurrency" />
-                            <PropertyValue Property="Label" String="Currency" />
-                        </Record>
-                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="OverallDeliveryStatus" />
                             <PropertyValue Property="Label" String="Status" />
                         </Record>
@@ -166,6 +162,90 @@
                             <PropertyValue Property="Label" String="Currency" />
                         </Record>
                     </Collection>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="ItemHeaderDP">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Title" String="Order Fulfillment Overview"/>
+                        <PropertyValue Property="Value" Path="Material"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ItemHeaderDP"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Order Fulfillment Overview"/>
+                        <PropertyValue Property="TypeNamePlural" String="REPLACE_WITH_TYPE_NAME_PLURAL"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrderItem"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrderItemText"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeImageUrl" String="REPLACE_WITH_TYPEIMAGE_PATH"/>
+                        <PropertyValue Property="ImageUrl" String="REPLACE_WITH_IMAGE_URL_PATH"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ItemGeneralInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Material"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrderItemCategory"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductionPlant"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShippingPoint"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StorageLocation"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="General Information"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="ID" String="_idGeneralInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ItemGeneralInfo"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Quantity &amp; Delivery"/>
+                            <PropertyValue Property="ID" String="QtyAndDelivery"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#qty"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="qty">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="RequestedQuantity"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ConfdDelivQtyInOrderQtyUnit"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Quantity &amp; Delivery"/>
+                    </Record>
                 </Annotation>
             </Annotations>
         </Schema>
