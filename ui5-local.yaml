@@ -35,9 +35,9 @@ server:
         ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap/opu/odata/sap/API_SALES_ORDER_SRV
-            url: https://sandbox.api.sap.com/s4hanacloud
-            headers:
-              apikey: Y19XE5uqPWRZ99GPhE33sAHyUoV9CMDA
+            url: http://sapha3u01.wup.services:50001
+            client: '100'
+            authenticationType: basic
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
@@ -47,7 +47,9 @@ server:
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
-        annotations: []
+        annotations:
+          - localPath: ./webapp/localService/mainService/API_SALES_ORDER_ANNO_MDL.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='API_SALES_ORDER_ANNO_MDL',Version='0001')/$value/
 builder:
   resources:
     excludes:
